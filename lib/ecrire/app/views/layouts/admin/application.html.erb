@@ -9,6 +9,10 @@
 </head>
 <%= content_tag :body, class: %W(#{action_name} #{controller_name}) do %>
 
+  <nav id='Menu' class='admin <%= controller_name %>'>
+    <%= yield :menu %>
+  </nav>
+
   <main>
     <%= yield %>
   </main>

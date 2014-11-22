@@ -1,7 +1,25 @@
-aside.preview header {
+nav#Menu.admin.posts {
+  @include justify-content(center);
+  form.title {
+    @include display(flex);
+    @include align-self(center);
 
-  form.post.title.settings:before {
-    content: '❞';
+    input {
+      border: none;
+      font-size: 1.7em;
+      width: 900px;
+      max-width: 80vw;
+      text-align: center;
+      background: none;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+      &:focus {
+        background: #C5D3DD;
+        border-radius: 2px;
+      }
+    }
   }
-
 }

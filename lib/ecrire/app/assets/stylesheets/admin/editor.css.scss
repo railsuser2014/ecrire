@@ -1,63 +1,54 @@
-@import 'mixins/colors';
-@import 'mixins/animations';
-@import 'mixins/form';
+@import 'variables/*';
 @import 'editor/**/*';
 
 body.posts[class*=edit] > main,
 body.posts[class*=new] > main,
 form.editor {
-  background: #F7F7F7;
+  background: #FFF;
 }
 
 body.posts[class*=edit] > main,
 body.posts[class*=new] > main {
-
-  form.editor {
+  form.post.editor {
+    @include flex(1);
     @include display(flex);
-    @include flex(3 50%);
-    height: 100vh;
-    overflow-y: scroll;
-    border-right: 5px solid #FEFEFE;
-  }
-
-  form ~ aside {
-    @include flex(1 50%);
-    height: 100vh;
-    overflow-y: scroll;
   }
 }
 
-form.post.editor {
+form.post.editor section.textareas {
+  @include display(flex);
+  @include flex(1);
   position: relative;
 
-  section.textareas {
+  [contenteditable] {
     @include flex(1);
-    position: relative;
+    min-width: 900px;
+    font-size: 1.5em;
+    padding: 80px 2em 2em 1em;
+    outline: none;
+    color: #000;
+  }
 
-    textarea {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      margin: 0;
-      border: 0;
-      background: inherit;
-      width: 100%;
-      resize: none;
-      font-size: 1.2em;
-      padding: 6em 2em 2em 1em;
-      outline: none;
-      &:not(.active) {
-        display: none;
-      }
+  textarea {
+    @include flex(1);
+    margin: 0;
+    border: 0;
+    background: inherit;
+    resize: none;
+    min-width: 900px;
+    font-size: 1.5em;
+    padding: 80px 2em 2em 1em;
+    outline: none;
+    color: #000;
+    &:not(.active) {
+      display: none;
     }
   }
 }
 
 nav.post {
   @include flex(0 0 10em);
-  padding: 6em 1em 0 0;
+  padding: 80px 1em 0 0;
   margin-left: 1em;
 
   ol.menu, div.missing.configuration {
@@ -111,8 +102,7 @@ nav.post {
     padding: 0.3em 1em 1em 1em;
     h3 {
       text-align: center;
-      color: $warning;
-      @include animation(flash 0.8s ease alternate infinite);
+      color: $warning-color;
     }
 
     p {
@@ -134,7 +124,7 @@ nav.post {
     @include transition(opacity 0.3s ease);
 
     &.warning {
-      color: $warning;
+      color: $warning-color;
       @include animation(flash 0.8s ease alternate infinite);
     }
 

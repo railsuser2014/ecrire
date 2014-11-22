@@ -1,1 +1,7 @@
+<%= content_for :menu do %>
+  <%= form_for @post, html: { class: %w(title) } do |f| %>
+    <%= f.text_field :title %>
+  <% end %>
+<% end %>
+
 <%= render "form", post: @post %>

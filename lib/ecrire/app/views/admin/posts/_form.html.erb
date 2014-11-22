@@ -29,22 +29,13 @@
     <% end %>
 
   </nav>
-  <%= f.editor %>
+
+  <section class="textareas">
+    <div contenteditable=true class='content active' target='content' as="Posts.Editor.Content">
+    </div>
+    <%= f.text_area :stylesheet, placeholder: t('.stylesheet'), class: %w(stylesheet), target: 'stylesheet' %>
+    <%= f.text_area :javascript, placeholder: t('.javascript'), class: %w(javascript), target: 'javascript' %>
+  </section>
 
 <% end %>
-
-<aside class="preview">
-
-  <%= editor_image_tag post %>
-  <%= render 'settings', post: post %>
-
-  <%= render 'admin/images/form', post: post, image: post.images.new %>
-  <%= content_tag :style, post.stylesheet.html_safe, scoped: :scoped, class: %w(stylesheet) %>
-  <%= content_tag :script, post.javascript.html_safe, type: 'text/javascript', class: %w(javascript) %>
-  <%= content_tag :article, post.content.html_safe, class: %w(content) %>
-</aside>
-
-<nav class="admin options">
-  <%= editor_back_button(post) %>
-</nav>
 
