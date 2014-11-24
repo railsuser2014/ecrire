@@ -28,6 +28,20 @@
           <%= content_tag :span, posts.published.count, class: %w(count) %>
         <% end %>
       </div>
+
+      <div class='splits'>
+        <h4>Split testing</h4>
+        <%= link_to admin_splits_path(type: :active), remote: true, as: 'Splits.Popup' do %>
+          <span class='type'>In progress</span>
+          <%= content_tag :span, active_experiments.count, class: %w(count) %>
+        <% end %>
+
+        <%= link_to admin_splits_path(type: :completed), remote: true, as: 'Splits.Popup' do %>
+          <span class='type'>Completed</span>
+          <%= content_tag :span, won_experiments.count, class: %w(count) %>
+        <% end %>
+      </div>
+
     </section>
 
     <%= yield :menu %>

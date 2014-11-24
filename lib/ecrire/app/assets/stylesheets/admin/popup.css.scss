@@ -46,11 +46,11 @@ div.popup header {
   }
 }
 
-div.popup ol {
+div.popup > ol {
   @include flex(1 auto);
   padding: 1em 0;
   overflow-y: scroll;
-  li {
+  & > li {
     padding: 0.5em 1em;
     font-size: 1.3em;
   }

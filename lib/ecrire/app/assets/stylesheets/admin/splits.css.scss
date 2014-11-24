@@ -1,0 +1,29 @@
+div.popup.splits {
+  li.experiment h5 {
+    margin: 0;
+    color: $header-color;
+  }
+
+  ol.alternatives {
+    @include display(flex);
+    @include flex-wrap(wrap);
+    background: #FFF;
+    border-radius: 2px;
+    font-size: 0.8em;
+
+    header {
+      @include flex(1 100%);
+    }
+
+    div {
+      @include flex(1);
+    }
+
+    li {
+      @include display(flex);
+      @include flex(1 100%);
+      color: $text-color;
+      padding: 0 1em;
+    }
+  }
+}

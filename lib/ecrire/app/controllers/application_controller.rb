@@ -3,7 +3,7 @@ class ApplicationController < ::ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :signed_in?
 
-  helper_method :warden, :posts
+  helper_method :warden, :posts, :active_experiments, :won_experiments
 
   def current_user
     warden.user
@@ -15,6 +15,14 @@ class ApplicationController < ::ActionController::Base
 
   def posts
     @posts ||= Post.all
+  end
+
+  def active_experiments
+    Split::Experiment.all.select { |e| not e.winner }
+  end
+
+  def won_experiments
+    Split::Experiment.all.select { |e| e.winner }
   end
 
   protected

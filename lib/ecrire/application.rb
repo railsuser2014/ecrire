@@ -1,4 +1,5 @@
 require 'warden'
+require 'split'
 require 's3'
 
 module Ecrire

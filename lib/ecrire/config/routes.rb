@@ -21,6 +21,7 @@ Ecrire::Application.routes.draw do
       resource :properties, only: [:create, :destroy]
     end
     resources :partials
+    resources :splits
 
     namespace :configurations do
       resource :images, only: [:show, :create]

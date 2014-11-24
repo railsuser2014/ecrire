@@ -1,0 +1,16 @@
+<li class='experiment item'>
+  <%= content_tag :h5, experiment.name %>
+  <%= button_to 'X', admin_split_path(id: experiment.name), method: :delete %>
+  <ol class='alternatives'>
+    <header>
+      <div>Name</div>
+      <div>Participants (unfinished/finished)</div>
+    </header>
+    <% experiment.alternatives.each do |alternative| %>
+      <%= content_tag :li do %>
+        <%= content_tag :div, alternative.name %>
+        <%= content_tag :div, "#{alternative.participant_count} (#{alternative.unfinished_count}/#{alternative.completed_count})" %>
+      <% end %>
+    <% end %>
+  </ol>
+</li>

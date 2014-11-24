@@ -1,0 +1,17 @@
+<div class='overlay'>
+  <div class='popup splits'>
+    <header>
+      <%= content_tag :h5, "Splits: #{params[:type].capitalize}" %>
+    </header>
+    <% if experiments.any? %>
+      <ol>
+        <% experiments.each do |e| %>
+          <%= render 'experiment', experiment: e %>
+        <% end %>
+      </ol>
+    <% else %>
+      <p>You don't have any <%= params[:type] %> experiment.</p>
+    <% end %>
+  </div>
+</div>
+

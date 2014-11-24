@@ -1,0 +1,6 @@
+<% if params[:type].eql?('completed') %>
+  e.HTML = "<%= j render('list', experiments: won_experiments) %>".toHTML()
+<% else %>
+  e.HTML = "<%= j render('list', experiments: active_experiments) %>".toHTML()
+<% end %>
+
